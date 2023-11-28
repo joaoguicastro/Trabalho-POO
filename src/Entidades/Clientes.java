@@ -1,11 +1,11 @@
 package Entidades;
 
 public class Clientes extends Pessoas{
-    protected double gasto;
-    protected boolean cadastro;
+    private double gasto;
+    private boolean cadastro;
 
     
-    public Clientes(int idade, String nome, double gastos, boolean cadastro) {
+    public Clientes(int idade, String nome, double gasto, boolean cadastro) {
         super(idade, nome);
         this.gasto = gasto;
         this.cadastro = cadastro;
@@ -19,7 +19,12 @@ public class Clientes extends Pessoas{
 
 
     public void setGasto(double gasto) {
-        this.gasto = gasto;
+        if(gasto<0){
+            throw new IllegalArgumentException();
+        }
+        else{
+            this.gasto = gasto;
+        }
     }
 
 

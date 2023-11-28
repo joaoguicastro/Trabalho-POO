@@ -13,7 +13,12 @@ public class Pessoas {
         return idade;
     }
     public void setIdade(int idade) {
-        this.idade = idade;
+        if(idade<0){
+            throw new IllegalArgumentException();
+        }
+            else{
+                this.idade = idade;
+            }
     }
     public String getNome() {
         return nome;

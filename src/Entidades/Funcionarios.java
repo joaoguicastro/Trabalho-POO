@@ -1,28 +1,19 @@
 package Entidades;
+import Interfaces.interfaceFuncionarios;
 
-public abstract class Funcionarios extends Pessoas{
+public abstract class Funcionarios extends Pessoas implements interfaceFuncionarios{
 
-    protected double salarioFixo;
     protected int id;
     protected int horaExtra;
     protected String escolaridade;
     protected int quantidadeHorasExtras;
 
-    public Funcionarios(int idade, String nome, double salarioFixo, int id, int horaExtra, String escolaridade, int quantidadeHorasExtras) {
+    public Funcionarios(int idade, String nome, int id, int horaExtra, String escolaridade, int quantidadeHorasExtras) {
         super(idade, nome);
-        this.salarioFixo = 2500;
         this.id = id;
         this.horaExtra = 50;
         this.escolaridade = escolaridade;
         this.quantidadeHorasExtras = quantidadeHorasExtras;
-    }
-
-     public double getSalarioFixo() {
-        return salarioFixo;
-    }
-
-    public void setSalarioFixo(double salarioFixo) {
-        this.salarioFixo = salarioFixo;
     }
 
     public int getId() {
@@ -62,13 +53,15 @@ public abstract class Funcionarios extends Pessoas{
 
     public abstract double calcularHoraExtra();
 
-    public abstract double calcularEscolartidade();
+    public abstract double calcularEscolaridade();
 
     @Override
     public String toString() {
-        return "Funcionarios [salarioFixo=" + salarioFixo + ", id=" + id + ", horaExtra=" + horaExtra
-                + ", escolaridade=" + escolaridade + "]";
+        return "Funcionarios [id=" + id + ", horaExtra=" + horaExtra + ", escolaridade=" + escolaridade
+                + ", quantidadeHorasExtras=" + quantidadeHorasExtras + "]";
     }
+
+    
 
 
 
