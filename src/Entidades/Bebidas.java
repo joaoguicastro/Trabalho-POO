@@ -1,7 +1,6 @@
 package Entidades;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 public class Bebidas extends Produtos{
     private boolean alcoolica;
@@ -13,17 +12,16 @@ public class Bebidas extends Produtos{
         this.alcoolica = alcoolica;
     }
 
-    @Override
-    public int calcularValidade() {
-        LocalDate hoje = LocalDate.now();
-        if(validade.isBefore(hoje)){
-            return 0;
-        }
-        else{
-            return (int) ChronoUnit.DAYS.between(hoje, validade);
+    public boolean isAlcoolica() {
+        if (alcoolica == true) {
+            System.out.println("Bebida alcoolica");
+            return true;
+        } else {
+            System.out.println("Bebida não alcoolica");
+            return false;
         }
     }
-
+    
     @Override
     public double calcularValor() {
         return preco + imposto;

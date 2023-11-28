@@ -3,9 +3,9 @@ package Entidades;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public abstract class Comidas extends Produtos{
+public abstract class Comida extends Produtos{
 
-    public Comidas(LocalDate validade, double preco, String nome, String marca, boolean estragou, double imposto,
+    public Comida(LocalDate validade, double preco, String nome, String marca, boolean estragou, double imposto,
             String tipo) {
         super(validade, preco, nome, marca, estragou, imposto);
     }
