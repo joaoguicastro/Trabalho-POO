@@ -3,10 +3,11 @@ package Entidades;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class Produto_Duravel extends Produtos{
+public class Produto_Duravel extends Comidas{
 
-    public Produto_Duravel(LocalDate validade, double preco, String nome, String marca, boolean estragou) {
-        super(validade, preco, nome, marca, estragou);
+    public Produto_Duravel(LocalDate validade, double preco, String nome, String marca, boolean estragou,
+            double imposto, String tipo) {
+        super(validade, preco, nome, marca, estragou, imposto, tipo);
         //TODO Auto-generated constructor stub
     }
 

@@ -1,7 +1,6 @@
 package Entidades;
 import Interfaces.interfaceProdutos;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public abstract class Produtos implements interfaceProdutos{
     protected LocalDate validade;
@@ -9,17 +8,16 @@ public abstract class Produtos implements interfaceProdutos{
     protected String nome;
     protected String marca;
     protected boolean estragou;
-    
-    
+    protected double imposto;
 
-    public Produtos(LocalDate validade, double preco, String nome, String marca, boolean estragou) {
+    public Produtos(LocalDate validade, double preco, String nome, String marca, boolean estragou, double imposto) {
         this.validade = validade;
         this.preco = preco;
         this.nome = nome;
         this.marca = marca;
-        this.estragou = false;
+        this.estragou = estragou;
+        this.imposto = (preco * 5/100);
     }
-
 
     public LocalDate getValidade() {
         return validade;
@@ -41,6 +39,14 @@ public abstract class Produtos implements interfaceProdutos{
             this.preco = preco;
         }
         
+    }
+
+    public double getImposto() {
+        return imposto;
+    }
+
+    public void setImposto(double imposto) {
+        this.imposto = imposto;
     }
 
     public String getNome() {
@@ -66,14 +72,8 @@ public abstract class Produtos implements interfaceProdutos{
     public void setEstragou(boolean estragou) {
         this.estragou = estragou;
     }    
-    
-    public abstract int calcularValidade();
 
-    public String getValidadeFormatada(){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return validade.format(formatter);
-    }
-
+    public abstract double calcularValor();
 
     @Override
     public String toString() {
