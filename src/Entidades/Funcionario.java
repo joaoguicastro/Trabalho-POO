@@ -1,14 +1,14 @@
 package Entidades;
 import Interfaces.interfaceFuncionarios;
 
-public abstract class Funcionarios extends Pessoas implements interfaceFuncionarios{
+public abstract class Funcionario extends Pessoas implements interfaceFuncionarios{
 
     protected int id;
     protected int horaExtra;
     protected String escolaridade;
     protected int quantidadeHorasExtras;
 
-    public Funcionarios(int idade, String nome, int id, int horaExtra, String escolaridade, int quantidadeHorasExtras) {
+    public Funcionario(int idade, String nome, int id, int horaExtra, String escolaridade, int quantidadeHorasExtras) {
         super(idade, nome);
         this.id = id;
         this.horaExtra = 50;

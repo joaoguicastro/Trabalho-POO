@@ -1,10 +1,10 @@
 package Entidades;
 
-public class Clientes extends Pessoas{
+public class Cliente extends Pessoas{
     private boolean cadastro;
 
     
-    public Clientes(int idade, String nome, boolean cadastro) {
+    public Cliente(int idade, String nome, boolean cadastro) {
         super(idade, nome);
         this.cadastro = cadastro;
 

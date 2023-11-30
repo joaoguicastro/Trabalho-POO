@@ -2,7 +2,7 @@ package Entidades;
 import Interfaces.interfaceProdutos;
 import java.time.LocalDate;
 
-public abstract class Produtos implements interfaceProdutos{
+public abstract class Produto implements interfaceProdutos{
     protected LocalDate validade;
     protected double preco;
     protected String nome;
@@ -10,12 +10,11 @@ public abstract class Produtos implements interfaceProdutos{
     protected boolean estragou;
     protected double imposto;
 
-    public Produtos(LocalDate validade, double preco, String nome, String marca, boolean estragou, double imposto) {
+    public Produto(LocalDate validade, double preco, String nome, String marca, double imposto) {
         this.validade = validade;
         this.preco = preco;
         this.nome = nome;
         this.marca = marca;
-        this.estragou = estragou;
         this.imposto = (preco * 5/100);
     }
 
@@ -63,23 +62,13 @@ public abstract class Produtos implements interfaceProdutos{
 
     public void setMarca(String marca) {
         this.marca = marca;
-    }
-
-    public boolean isEstragou() {
-        return estragou;
-    }
-
-    public void setEstragou(boolean estragou) {
-        this.estragou = estragou;
-    }    
+    }  
 
     public abstract double calcularValor();
 
     @Override
     public String toString() {
-        return "Produtos [validade=" + validade + ", preco=" + preco + ", nome=" + nome + ", marca=" + marca + ", estragou=" + estragou + "]";
+        return "Produto [validade=" + validade + ", preco=" + preco + ", nome=" + nome + ", marca=" + marca
+                + ", estragou=" + estragou + ", imposto=" + imposto + "]";
     }
-
-
-    
 }

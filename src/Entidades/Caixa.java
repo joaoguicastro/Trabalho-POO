@@ -2,7 +2,7 @@ package Entidades;
 
 import Exceções.wrongNameException;
 
-public class Caixa extends Funcionarios{
+public class Caixa extends Funcionario{
     private double salarioFixo;
 
     public Caixa(int idade, String nome, int id, int horaExtra, String escolaridade, int quantidadeHorasExtras, double salarioFixo) {

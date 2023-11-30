@@ -2,7 +2,7 @@ package Entidades;
 
 import Exceções.wrongNameException;
 
-public class Repositor extends Funcionarios{
+public class Repositor extends Funcionario{
     private double salarioFixo;
 
     public Repositor(int idade, String nome, double salarioFixo, int id, int horaExtra, String escolaridade,int quantidadeHorasExtras) {

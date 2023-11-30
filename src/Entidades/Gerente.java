@@ -1,6 +1,6 @@
 package Entidades;
 import Exceções.wrongNameException;
-public class Gerente extends Funcionarios{
+public class Gerente extends Funcionario{
     private double salarioFixo;
     
     

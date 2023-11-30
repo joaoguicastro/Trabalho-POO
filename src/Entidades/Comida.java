@@ -3,11 +3,11 @@ package Entidades;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public abstract class Comida extends Produtos{
+public abstract class Comida extends Produto{
 
-    public Comida(LocalDate validade, double preco, String nome, String marca, boolean estragou, double imposto,
+    public Comida(LocalDate validade, double preco, String nome, String marca, double imposto,
             String tipo) {
-        super(validade, preco, nome, marca, estragou, imposto);
+        super(validade, preco, nome, marca, imposto);
     }
 
     public String getValidadeFormatada(){

@@ -2,13 +2,13 @@ package Entidades;
 
 import java.time.LocalDate;
 
-public class Bebidas extends Produtos{
+public class Bebida extends Produto{
     private boolean alcoolica;
 
 
-    public Bebidas(LocalDate validade, double preco, String nome, String marca, boolean estragou, double imposto,
+    public Bebida(LocalDate validade, double preco, String nome, String marca, double imposto,
             boolean alcoolica) {
-        super(validade, preco, nome, marca, estragou, imposto);
+        super(validade, preco, nome, marca, imposto);
         this.alcoolica = alcoolica;
     }
 
