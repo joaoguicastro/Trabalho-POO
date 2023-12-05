@@ -1,44 +1,51 @@
 package Entidades;
 
-public class Supermercado {
-    private Produto[] consumiveis;
-    private Funcionario[] funcionarios;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Supermercado(Produto[] consumiveis, Funcionario[] funcionarios) {
+public class Supermercado {
+    private List<Produto> consumiveis = new ArrayList<Produto>();
+    private List<Funcionario> funcionarios = new ArrayList<Funcionario>();
+
+    public Supermercado(List consumiveis, List funcionarios) {
         this.consumiveis = consumiveis;
         this.funcionarios = funcionarios;
+    }
+    public Supermercado(){
+
     }
 
     public void imprimirInformacaoFuncionarios(){
         System.out.println("Quantidade de funcionarios: Repositores = ");
-        for(int i = 0; i < funcionarios.length; i++){
-            if(funcionarios[i] instanceof Repositor){
-                System.out.println(funcionarios[i]);
+        for(int i = 0; i < funcionarios.size(); i++){
+            if(funcionarios.get(i) instanceof Repositor){
+                System.out.println(funcionarios.get(i));
             }
         }
         System.out.println("Quantidade de funcionarios: Caixas = ");
-        for(int i = 0; i < funcionarios.length; i++){
-            if(funcionarios[i] instanceof Caixa){
-                System.out.println(funcionarios[i]);
+        for(int i = 0; i < funcionarios.size(); i++){
+            if(funcionarios.get(i) instanceof Caixa){
+                System.out.println(funcionarios.get(i));
             }
         }
         System.out.println("Quantidade de funcionarios: Gerente = ");
-        for(int i = 0; i < funcionarios.length; i++){
-            if(funcionarios[i] instanceof Gerente){
-                System.out.println(funcionarios[i]);
+        for(int i = 0; i < funcionarios.size(); i++){
+            if(funcionarios.get(i) instanceof Gerente){
+                System.out.println(funcionarios.get(i));
             }
         }}
         public void imprimirInformacaoProdutos(){
         System.out.println("Quantidade de produtos: Comida = ");
-        for(int i = 0; i < consumiveis.length; i++){
-            if(consumiveis[i] instanceof Comida){
-                System.out.println(consumiveis[i]);
+        for(int i = 0; i < consumiveis.size(); i++){
+            if(consumiveis.get(i) instanceof Comida){
+                System.out.println(consumiveis.get(i));
             }
         }
         System.out.println("Quantidade de produtos: Bebida = ");
-        for(int i = 0; i < consumiveis.length; i++){
-            if(consumiveis[i] instanceof Bebida){
-                System.out.println(consumiveis[i]);
+        for(int i = 0; i < consumiveis.size(); i++){
+            if(consumiveis.get(i) instanceof Bebida){
+                System.out.println(consumiveis.get(i));
             }
         }
     }
@@ -51,17 +58,17 @@ public class Supermercado {
         double totalSuperiorCompleto = 0;
         
 
-        for(int i = 0; i < funcionarios.length; i++){
-            total += funcionarios[i].calcularSalario();
+        for(int i = 0; i < funcionarios.size(); i++){
+            total += funcionarios.get(i).calcularSalario();
 
-            if(funcionarios[i].getEscolaridade().equals("ensino medio incompleto")){
-                totalMedioIncompleto+=funcionarios[i].calcularSalario();
-            }else if(funcionarios[i].getEscolaridade().equals("ensino medio completo")){
-                totalMedioCompleto+=funcionarios[i].calcularSalario();
-            }else if(funcionarios[i].getEscolaridade().equals("ensino superior incompleto")){
-                totalSuperiorIncompleto+=funcionarios[i].calcularSalario();
-            }else if(funcionarios[i].getEscolaridade().equals("ensino superior completo")){
-                totalSuperiorCompleto+=funcionarios[i].calcularSalario();
+            if(funcionarios.get(i).getEscolaridade().equals("ensino medio incompleto")){
+                totalMedioIncompleto+=funcionarios.get(i).calcularSalario();
+            }else if(funcionarios.get(i).getEscolaridade().equals("ensino medio completo")){
+                totalMedioCompleto+=funcionarios.get(i).calcularSalario();
+            }else if(funcionarios.get(i).getEscolaridade().equals("ensino superior incompleto")){
+                totalSuperiorIncompleto+=funcionarios.get(i).calcularSalario();
+            }else if(funcionarios.get(i).getEscolaridade().equals("ensino superior completo")){
+                totalSuperiorCompleto+=funcionarios.get(i).calcularSalario();
             }
         }
         
@@ -80,19 +87,19 @@ public class Supermercado {
         double totalBebida = 0;
 
 
-        for(int i = 0; i < consumiveis.length; i++){
-            if(consumiveis[i] instanceof Produto){
-                total += consumiveis[i].calcularValor();
+        for(int i = 0; i < consumiveis.size(); i++){
+            if(consumiveis.get(i) instanceof Produto){
+                total += consumiveis.get(i).calcularValor();
             }
         }
-        for(int i = 0; i < consumiveis.length; i++){
-            if(consumiveis[i] instanceof Comida){
-                totalComida+=consumiveis[i].calcularValor();
+        for(int i = 0; i < consumiveis.size(); i++){
+            if(consumiveis.get(i) instanceof Comida){
+                totalComida+=consumiveis.get(i).calcularValor();
             }
         }
-        for(int i = 0; i < consumiveis.length; i++){
-            if(consumiveis[i] instanceof Bebida){
-                totalBebida+=consumiveis[i].calcularValor(); 
+        for(int i = 0; i < consumiveis.size(); i++){
+            if(consumiveis.get(i) instanceof Bebida){
+                totalBebida+=consumiveis.get(i).calcularValor(); 
             }
         }
 

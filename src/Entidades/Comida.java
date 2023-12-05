@@ -3,10 +3,11 @@ package Entidades;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public abstract class Comida extends Produto{
+import Interfaces.interfaceComidas;
 
-    public Comida(LocalDate validade, double preco, String nome, String marca, double imposto,
-            String tipo) {
+public abstract class Comida extends Produto implements interfaceComidas{
+
+    public Comida(LocalDate validade, double preco, String nome, String marca, double imposto, String tipo) {
         super(validade, preco, nome, marca, imposto);
     }
 
