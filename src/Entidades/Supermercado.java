@@ -9,38 +9,33 @@ public class Supermercado {
         this.funcionarios = funcionarios;
     }
 
-
-
-
-
-    
-
-    public void imprimirInformacao(){
-        System.out.println("Repositores:");
+    public void imprimirInformacaoFuncionarios(){
+        System.out.println("Quantidade de funcionarios: Repositores = ");
         for(int i = 0; i < funcionarios.length; i++){
             if(funcionarios[i] instanceof Repositor){
                 System.out.println(funcionarios[i]);
             }
         }
-        System.out.println("Caixas:");
+        System.out.println("Quantidade de funcionarios: Caixas = ");
         for(int i = 0; i < funcionarios.length; i++){
             if(funcionarios[i] instanceof Caixa){
                 System.out.println(funcionarios[i]);
             }
         }
-        System.out.println("Gerente:");
+        System.out.println("Quantidade de funcionarios: Gerente = ");
         for(int i = 0; i < funcionarios.length; i++){
             if(funcionarios[i] instanceof Gerente){
                 System.out.println(funcionarios[i]);
             }
-        }
-        System.out.println("Comida:");
+        }}
+        public void imprimirInformacaoProdutos(){
+        System.out.println("Quantidade de produtos: Comida = ");
         for(int i = 0; i < consumiveis.length; i++){
             if(consumiveis[i] instanceof Comida){
                 System.out.println(consumiveis[i]);
             }
         }
-        System.out.println("Bebida:");
+        System.out.println("Quantidade de produtos: Bebida = ");
         for(int i = 0; i < consumiveis.length; i++){
             if(consumiveis[i] instanceof Bebida){
                 System.out.println(consumiveis[i]);
@@ -84,10 +79,21 @@ public class Supermercado {
         double totalComida = 0;
         double totalBebida = 0;
 
-        for(int i = 0; i < funcionarios.length; i++){
-            total += consumiveis[i].calcularValor();
-            totalComida+=consumiveis[i].calcularValor();
-            totalBebida+=consumiveis[i].calcularValor();  
+
+        for(int i = 0; i < consumiveis.length; i++){
+            if(consumiveis[i] instanceof Produto){
+                total += consumiveis[i].calcularValor();
+            }
+        }
+        for(int i = 0; i < consumiveis.length; i++){
+            if(consumiveis[i] instanceof Comida){
+                totalComida+=consumiveis[i].calcularValor();
+            }
+        }
+        for(int i = 0; i < consumiveis.length; i++){
+            if(consumiveis[i] instanceof Bebida){
+                totalBebida+=consumiveis[i].calcularValor(); 
+            }
         }
 
         System.out.println("Descritivo:");
@@ -98,3 +104,8 @@ public class Supermercado {
 
 
 }
+        // for(int i = 0; i < funcionarios.length; i++){
+        //     total += consumiveis[i].calcularValor();
+        //     totalComida+=consumiveis[i].calcularValor();
+        //     totalBebida+=consumiveis[i].calcularValor();  
+        // }

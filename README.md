@@ -6,17 +6,17 @@
 
 ## [+/-] • Sinalização em pelo menos 3 métodos que podem disparar exceção (utilização do throws); (1,0 ponto) - Utilizar no app
 
-## [1/3] • Implementar pelo menos 3 classes próprias de exceção (Classe de exceção que você deverá criar de acordo com a sua lógica de negócio); (1,0 ponto)
+## [2/3] • Implementar pelo menos 3 classes próprias de exceção (Classe de exceção que você deverá criar de acordo com a sua lógica de negócio); (1,0 ponto)
 
 ## [X] • Herança em pelo menos 3 classes; (1,0 ponto) Pessoas, Funcionarios e Produtos
 
-## [X] • Polimorfismo em pelo menos 3 classes (Utilizando sobrecarga e/ou sobreposi¸ção); (1,0 ponto)
+## [X] • Polimorfismo em pelo menos 3 classes (Utilizando sobrecarga e/ou sobreposição); (1,0 ponto)
 
 ## [X] • Método toString implementado em todos as classes; (0,5 ponto)
 
 ## [X] • Uso de encapsulamento; (0,5 ponto)
 
-## [ ] • Uso de ArrayList em pelo menos duas classes. (0,5 ponto)
+## [1/2] • Uso de ArrayList em pelo menos duas classes. (0,5 ponto)
 
 ## [ ] • Utilização de Arquivos: leitura e escrita (faça um log de algum cadastro, e também faça algum metodo que seja dependente da leitura do arquivo) (1,0 ponto)
 

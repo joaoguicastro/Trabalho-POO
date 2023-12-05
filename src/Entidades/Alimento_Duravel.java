@@ -5,8 +5,7 @@ import java.time.temporal.ChronoUnit;
 
 public class Alimento_Duravel extends Comida{
 
-    public Alimento_Duravel(LocalDate validade, double preco, String nome, String marca,
-            double imposto, String tipo) {
+    public Alimento_Duravel(LocalDate validade, double preco, String nome, String marca, double imposto, String tipo) {
         super(validade, preco, nome, marca, imposto, tipo);
     }
 
