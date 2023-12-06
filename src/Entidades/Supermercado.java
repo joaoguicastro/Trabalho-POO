@@ -1,85 +1,101 @@
 package Entidades;
+import Exceções.*;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.UUID;
 
 public class Supermercado {
     private List<Produto> consumiveis = new ArrayList<Produto>();
     private List<Funcionario> funcionarios = new ArrayList<Funcionario>();
+    private List<Cliente> clientes = new ArrayList<Cliente>();
 
-    public Supermercado(List consumiveis, List funcionarios) {
+    public Supermercado(List<Produto> consumiveis, List<Funcionario> funcionarios, List<Cliente> clientes) {
         this.consumiveis = consumiveis;
         this.funcionarios = funcionarios;
+        this.clientes = clientes;
     }
     public Supermercado(){
 
     }
 
-    public void imprimirInformacaoFuncionarios(){
-        System.out.println("Quantidade de funcionarios: Repositores = ");
-        for(int i = 0; i < funcionarios.size(); i++){
-            if(funcionarios.get(i) instanceof Repositor){
-                System.out.println(funcionarios.get(i));
+    public void imprimirInformacaoFuncionarios() {
+        int contadorRepositores = 0;
+        int contadorCaixas = 0;
+        int contadorGerentes = 0;
+    
+        for (Funcionario funcionario : funcionarios) {
+            System.out.println(funcionario);
+
+            if (funcionario instanceof Repositor) {
+                contadorRepositores++;
+            } else if (funcionario instanceof Caixa) {
+                contadorCaixas++;
+            } else if (funcionario instanceof Gerente) {
+                contadorGerentes++;
             }
         }
-        System.out.println("Quantidade de funcionarios: Caixas = ");
-        for(int i = 0; i < funcionarios.size(); i++){
-            if(funcionarios.get(i) instanceof Caixa){
-                System.out.println(funcionarios.get(i));
-            }
-        }
-        System.out.println("Quantidade de funcionarios: Gerente = ");
-        for(int i = 0; i < funcionarios.size(); i++){
-            if(funcionarios.get(i) instanceof Gerente){
-                System.out.println(funcionarios.get(i));
-            }
-        }}
-        public void imprimirInformacaoProdutos(){
-        System.out.println("Quantidade de produtos: Comida = ");
-        for(int i = 0; i < consumiveis.size(); i++){
-            if(consumiveis.get(i) instanceof Comida){
-                System.out.println(consumiveis.get(i));
-            }
-        }
-        System.out.println("Quantidade de produtos: Bebida = ");
-        for(int i = 0; i < consumiveis.size(); i++){
-            if(consumiveis.get(i) instanceof Bebida){
-                System.out.println(consumiveis.get(i));
-            }
-        }
+    
+        System.out.println("Quantidade de funcionários: Repositores = " + contadorRepositores);
+        System.out.println("Quantidade de funcionários: Caixas = " + contadorCaixas);
+        System.out.println("Quantidade de funcionários: Gerentes = " + contadorGerentes);
     }
 
-    public void exibirCustos(){
-        double total = 0;
-        double totalMedioIncompleto = 0;
-        double totalMedioCompleto = 0;
-        double totalSuperiorIncompleto = 0;
-        double totalSuperiorCompleto = 0;
         
+        public void imprimirInformacaoProdutos(){
+            int contadorAlimentoDuravel = 0;
+            int contadorAlimentoPerecivel = 0;
+            int contadorBebidaAlcoolica = 0;
+            int contadorBebidaNaoAlcoolica = 0;
 
-        for(int i = 0; i < funcionarios.size(); i++){
-            total += funcionarios.get(i).calcularSalario();
-
-            if(funcionarios.get(i).getEscolaridade().equals("ensino medio incompleto")){
-                totalMedioIncompleto+=funcionarios.get(i).calcularSalario();
-            }else if(funcionarios.get(i).getEscolaridade().equals("ensino medio completo")){
-                totalMedioCompleto+=funcionarios.get(i).calcularSalario();
-            }else if(funcionarios.get(i).getEscolaridade().equals("ensino superior incompleto")){
-                totalSuperiorIncompleto+=funcionarios.get(i).calcularSalario();
-            }else if(funcionarios.get(i).getEscolaridade().equals("ensino superior completo")){
-                totalSuperiorCompleto+=funcionarios.get(i).calcularSalario();
+            for (Produto produto : consumiveis) {
+                System.out.println(produto);
+                if (produto instanceof Alimento_Duravel) {
+                    contadorAlimentoDuravel++;
+                } else if (produto instanceof Alimento_Perecivel) {
+                    contadorAlimentoPerecivel++;
+                } else if (produto instanceof BebidaAlcoolica) {
+                    contadorBebidaAlcoolica++;
+                }else if(produto instanceof BebidaNaoAlcoolica){
+                    contadorBebidaNaoAlcoolica++;
+                }
             }
+
+            System.out.println("Quantidade de Produtos: Alimento Duravel = " + contadorAlimentoDuravel);
+            System.out.println("Quantidade de Produtos: Alimento Perecivel = " + contadorAlimentoPerecivel);
+            System.out.println("Quantidade de Produtos: Bebida Alcoolica = " + contadorBebidaAlcoolica);
+            System.out.println("Quantidade de Produtos: Bebida Nao Alcoolica = " + contadorBebidaNaoAlcoolica);
         }
+
+        public void exibirCustos() {
+            double total = 0;
+            double totalRepositores = 0;
+            double totalGerentes = 0;
+            double totalCaixas = 0;
         
-        System.out.println("Descritivo:");
-        System.out.println("Valor Salários: "+total);
-        System.out.println("Valor Ensino medio incompleto: "+totalMedioIncompleto);
-        System.out.println("Valor Ensino medio completo: "+totalMedioCompleto);
-        System.out.println("Valor Ensino superior incompleto: "+totalSuperiorIncompleto);
-        System.out.println("Valor Ensino Superior completo: "+totalSuperiorCompleto);
+            for (Funcionario funcionario : funcionarios) {
+                System.out.println(funcionario);
         
-    }    
+                if (funcionario instanceof Repositor) {
+                    totalRepositores += funcionario.calcularSalario();
+                } else if (funcionario instanceof Caixa) {
+                    totalCaixas += funcionario.calcularSalario();
+                } else if (funcionario instanceof Gerente) {
+                    totalGerentes += funcionario.calcularSalario();
+                }
+                total += funcionario.calcularSalario();
+            }
+        
+            System.out.println("Descritivo:");
+            System.out.println("Valor total dos salários: " + total);
+            System.out.println("Valor total dos salários dos gerentes: " + totalGerentes);
+            System.out.println("Valor total dos salários dos caixas: " + totalCaixas);
+            System.out.println("Valor total dos salários dos repositores: " + totalRepositores);
+        }
+           
 
     public void exibirPreco(){
         double total = 0;
@@ -109,10 +125,141 @@ public class Supermercado {
         System.out.println("Valor Total de Bebida: "+totalBebida);
     }
 
-
-}
         // for(int i = 0; i < funcionarios.length; i++){
         //     total += consumiveis[i].calcularValor();
         //     totalComida+=consumiveis[i].calcularValor();
         //     totalBebida+=consumiveis[i].calcularValor();  
         // }
+
+    public void cadastrarFuncionario() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite a idade do funcionario: ");
+        int idade = sc.nextInt();
+        System.out.println("Digite o nome do funcionario: ");
+        String nome = sc.next();
+        int id = 0;
+        try {
+            id = UUID.randomUUID().hashCode();
+        } catch (JaCadastrado e) { 
+            System.out.println("Ocorreu um erro: " + e.getMessage());
+            e.printStackTrace();
+            return; 
+        }
+        System.out.println("Digite o salario fixo do funcionario: ");
+        double salarioFixo = sc.nextDouble();
+        System.out.println("Digite a quantidade de horas extras do funcionario: ");
+        int quantidadeHorasExtras = sc.nextInt();
+        System.out.println("Digite a escolaridade do funcionario: ");
+        String escolaridade = sc.next();
+        System.out.println("Digite o valor ganho de cada hora extra do funcionario: ");
+        String castro = sc.nextLine();
+        int horaExtra = sc.nextInt();
+        System.out.println("Digite o cargo do funcionario: ");
+        String cargo = sc.next();
+
+        try{
+        if (cargo.equals("Gerente")) {
+            this.funcionarios.add(new Gerente(idade, nome, id, horaExtra, escolaridade, quantidadeHorasExtras, salarioFixo));
+        } else if (cargo.equals("Caixa")) {
+            this.funcionarios.add(new Caixa(idade, nome, id, horaExtra, escolaridade, quantidadeHorasExtras, salarioFixo));
+        } else if (cargo.equals("Repositor")) {
+            this.funcionarios.add(new Repositor(idade, nome, salarioFixo, id, horaExtra, escolaridade, quantidadeHorasExtras));
+        }}catch(wrongNameException e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    public void cadastrarProduto() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o nome do produto: ");
+        String nome = sc.next();
+        System.out.println("Digite o preço do produto: ");
+        double preco = sc.nextDouble();
+        System.out.println("Digite o tipo do produto: ");
+        String tipo = sc.next();
+    
+        if (tipo.equals("Comida")) {
+            System.out.println("Digite a data de validade do produto: ");
+            String dataValidade = sc.next();
+            LocalDate data = LocalDate.parse(dataValidade, formatter);
+    
+            System.out.println("Digite o tipo do produto (duravel ou perecivel): ");
+            String tipoProduto = sc.next();
+            System.out.println("Digite o imposto do produto: ");
+            double imposto = sc.nextDouble();
+            System.out.println("Digite a marca do produto: ");
+            String marca = sc.next();
+
+            try{
+            if (tipoProduto.equals("duravel")) {
+                this.consumiveis.add(new Alimento_Duravel(data, preco, nome, marca, imposto));
+            } else {
+                this.consumiveis.add(new Alimento_Perecivel(data, preco, nome, marca, imposto));
+            }}catch(wrongNameException e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    
+        } else if (tipo.equals("Bebida")) {
+            System.out.println("Digite a validade do produto");
+            String validade = sc.next();
+            LocalDate data = LocalDate.parse(validade, formatter);
+    
+            System.out.println("Digite a marca do produto");
+            String marca = sc.next();
+            System.out.println("É uma bebida alcoolica? (true para sim, false para não)");
+            boolean eAlcoolica = sc.nextBoolean();
+            System.out.println("Digite o imposto do produto");
+            double imposto = sc.nextDouble();
+
+            try{
+            if (eAlcoolica) {
+                this.consumiveis.add(new BebidaAlcoolica(data, preco, nome, marca, imposto));
+            } else {
+                this.consumiveis.add(new BebidaNaoAlcoolica(data, preco, nome, marca, imposto));
+            }}catch(wrongNameException e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }}
+
+    }
+    
+    public void CadastrarCliente() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite a idade do Cliente: ");
+        int idade = sc.nextInt();
+        System.out.println("Digite o nome do Cliente: ");
+        String nome = sc.next();
+    
+        int cadastro = 0;
+        try {
+            cadastro = UUID.randomUUID().hashCode();
+        } catch (JaCadastrado e) { 
+            System.out.println("Ocorreu um erro: " + e.getMessage());
+            e.printStackTrace();
+            return; 
+        }
+    
+        System.out.println("Digite o gasto do cliente");
+        double gasto = sc.nextDouble();
+    
+        this.clientes.add(new Cliente(idade, nome, cadastro, gasto));
+    }
+    
+
+    public void ListarClientes() {
+    int contadorClientes = 0;
+
+    for (Cliente cliente : clientes) {
+        System.out.println(cliente);
+
+        if (cliente instanceof Cliente) {
+            contadorClientes++;
+        }
+    }
+
+    System.out.println("Quantidade de Clientes = " + contadorClientes);
+    }
+
+}

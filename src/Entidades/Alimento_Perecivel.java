@@ -6,8 +6,8 @@ import java.time.temporal.ChronoUnit;
 public class Alimento_Perecivel extends Comida{
 
     public Alimento_Perecivel(LocalDate validade, double preco, String nome, String marca,
-            double imposto, String tipo) {
-        super(validade, preco, nome, marca, imposto, tipo);
+            double imposto) {
+        super(validade, preco, nome, marca, imposto);
     }
 
     @Override

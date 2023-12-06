@@ -6,7 +6,7 @@
 
 ## [X] • Sinalização em pelo menos 3 métodos que podem disparar exceção (utilização do throws); (1,0 ponto) - Utilizar no app
 
-## [2/3] • Implementar pelo menos 3 classes próprias de exceção (Classe de exceção que você deverá criar de acordo com a sua lógica de negócio); (1,0 ponto)
+## [X] • Implementar pelo menos 3 classes próprias de exceção (Classe de exceção que você deverá criar de acordo com a sua lógica de negócio); (1,0 ponto)
 
 ## [X] • Herança em pelo menos 3 classes; (1,0 ponto) Pessoas, Funcionarios e Produtos
 

@@ -1,38 +1,40 @@
 package Entidades;
 
 public class Cliente extends Pessoas{
-    private boolean cadastro;
+    private int cadastro;
+    private double gasto;
 
     
-    public Cliente(int idade, String nome, boolean cadastro) {
+    public Cliente(int idade, String nome, int cadastro, double gasto) {
         super(idade, nome);
         this.cadastro = cadastro;
-
+        this.gasto = gasto;
     }
 
 
-    public boolean isCadastro() {
+    public int getCadastro() {
         return cadastro;
     }
 
-
-    public void setCadastro(boolean cadastro) {
+    public void setCadastro(int cadastro) {
         this.cadastro = cadastro;
     }
 
-    public int conferirCadastro(int cadastroCliente) {
-        if (cadastro) {
-            return cadastroCliente;
-        } else {
-            return 0; 
-        }
+     public double getGasto() {
+        return gasto;
+    }
+
+
+    public void setGasto(double gasto) {
+        this.gasto = gasto;
     }
 
 
     @Override
     public String toString() {
-        return "Clientes [cadastro=" + cadastro + "]";
+        return "Cliente = " + cadastro + "\n"+ "nome = "+nome+ "gastos = " + gasto;
     }
+   
 
     
     

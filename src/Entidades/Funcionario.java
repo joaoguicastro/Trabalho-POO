@@ -11,7 +11,7 @@ public abstract class Funcionario extends Pessoas implements interfaceFuncionari
     public Funcionario(int idade, String nome, int id, int horaExtra, String escolaridade, int quantidadeHorasExtras) {
         super(idade, nome);
         this.id = id;
-        this.horaExtra = 50;
+        this.horaExtra = horaExtra;
         this.escolaridade = escolaridade;
         this.quantidadeHorasExtras = quantidadeHorasExtras;
     }

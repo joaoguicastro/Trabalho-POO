@@ -7,7 +7,7 @@ import Interfaces.interfaceComidas;
 
 public abstract class Comida extends Produto implements interfaceComidas{
 
-    public Comida(LocalDate validade, double preco, String nome, String marca, double imposto, String tipo) {
+    public Comida(LocalDate validade, double preco, String nome, String marca, double imposto) {
         super(validade, preco, nome, marca, imposto);
     }
 

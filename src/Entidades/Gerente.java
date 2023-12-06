@@ -7,7 +7,7 @@ public class Gerente extends Funcionario{
     
     public Gerente(int idade, String nome, int id, int horaExtra, String escolaridade, int quantidadeHorasExtras, double salarioFixo) {
         super(idade, nome, id, horaExtra, escolaridade, quantidadeHorasExtras);
-        this.salarioFixo = 4000;
+        this.salarioFixo = salarioFixo;
     }
     
     public double getSalarioFixo() {
@@ -58,7 +58,7 @@ public class Gerente extends Funcionario{
 
     @Override
     public String toString() {
-        return "Gerente [Id: " + getId() + ", Nome: " + getNome() + ", Salário Fixo: " + getSalarioFixo() + "]";
+        return "Gerente = " + getId()+  "\n" +  "Nome: " + getNome() + ", Salário Fixo: " + getSalarioFixo() + ", Salário Total: " + calcularSalario() + "\n";
     }
 
 

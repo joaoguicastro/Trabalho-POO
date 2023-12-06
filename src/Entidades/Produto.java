@@ -7,7 +7,6 @@ public abstract class Produto implements interfaceProdutos{
     protected double preco;
     protected String nome;
     protected String marca;
-    protected boolean estragou;
     protected double imposto;
 
     public Produto(LocalDate validade, double preco, String nome, String marca, double imposto) {
@@ -15,7 +14,7 @@ public abstract class Produto implements interfaceProdutos{
         this.preco = preco;
         this.nome = nome;
         this.marca = marca;
-        this.imposto = (preco * 5/100);
+        this.imposto = imposto;
     }
 
     public LocalDate getValidade() {
@@ -69,6 +68,6 @@ public abstract class Produto implements interfaceProdutos{
     @Override
     public String toString() {
         return "Produto [validade=" + validade + ", preco=" + preco + ", nome=" + nome + ", marca=" + marca
-                + ", estragou=" + estragou + ", imposto=" + imposto + "]";
+                + ", imposto=" + imposto + "]";
     }
 }
