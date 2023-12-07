@@ -3,9 +3,9 @@ package Entidades;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class Alimento_Perecivel extends Comida{
+public class AlimentoPerecivel extends Comida{
 
-    public Alimento_Perecivel(LocalDate validade, double preco, String nome, String marca,
+    public AlimentoPerecivel(LocalDate validade, double preco, String nome, String marca,
             double imposto) {
         super(validade, preco, nome, marca, imposto);
     }
@@ -19,5 +19,11 @@ public class Alimento_Perecivel extends Comida{
             return (int) ChronoUnit.DAYS.between(hoje, validade);
         }
     }
+
+    @Override
+    public String toString() {
+        return "AlimentoPerecivel []";
+    }
+    
     
 }

@@ -21,4 +21,11 @@ public abstract class Comida extends Produto implements interfaceComidas{
     }
 
     public abstract int calcularValidade();
+
+    @Override
+    public String toString() {
+        return "Comida []";
+    }
+
+    
 }

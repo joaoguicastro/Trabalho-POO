@@ -14,5 +14,10 @@ public abstract class Bebida extends Produto{;
         return preco + imposto;
     }
 
+    @Override
+    public String toString() {
+        return "Bebida []";
+    }
 
+    
 }

@@ -8,4 +8,12 @@ public class BebidaAlcoolica extends Bebida{
         super(validade, preco, nome, marca, imposto);
     }
 
+    @Override
+    public String toString() {
+        return "BebidaAlcoolica []";
+    }
+
+
+
+    
 }

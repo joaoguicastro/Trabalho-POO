@@ -53,9 +53,9 @@ public class Supermercado {
 
             for (Produto produto : consumiveis) {
                 System.out.println(produto);
-                if (produto instanceof Alimento_Duravel) {
+                if (produto instanceof AlimentoDuravel) {
                     contadorAlimentoDuravel++;
-                } else if (produto instanceof Alimento_Perecivel) {
+                } else if (produto instanceof AlimentoPerecivel) {
                     contadorAlimentoPerecivel++;
                 } else if (produto instanceof BebidaAlcoolica) {
                     contadorBebidaAlcoolica++;
@@ -193,9 +193,9 @@ public class Supermercado {
 
             try{
             if (tipoProduto.equals("duravel")) {
-                this.consumiveis.add(new Alimento_Duravel(data, preco, nome, marca, imposto));
+                this.consumiveis.add(new AlimentoDuravel(data, preco, nome, marca, imposto));
             } else {
-                this.consumiveis.add(new Alimento_Perecivel(data, preco, nome, marca, imposto));
+                this.consumiveis.add(new AlimentoPerecivel(data, preco, nome, marca, imposto));
             }}catch(wrongNameException e){
             System.out.println(e.getMessage());
             e.printStackTrace();
