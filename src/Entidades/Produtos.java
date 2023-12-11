@@ -40,7 +40,6 @@ public abstract class Produtos implements interfaceProdutos{
         else{
             this.preco = preco;
         }
-        
     }
 
     public String getNome() {
