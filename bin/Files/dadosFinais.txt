@@ -1,0 +1,2 @@
+Exibir custo total: 0.0
+Exibir ventas totais: 0.0

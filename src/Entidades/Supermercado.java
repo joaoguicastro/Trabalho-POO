@@ -1,10 +1,18 @@
 package Entidades;
 import Exceções.*;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -70,7 +78,7 @@ public class Supermercado {
             System.out.println("Quantidade de Produtos: Bebida Nao Alcoolica = " + contadorBebidaNaoAlcoolica);
         }
 
-        public void exibirCustos() {
+        public double exibirCustos() {
             double total = 0;
             double totalRepositores = 0;
             double totalGerentes = 0;
@@ -94,10 +102,11 @@ public class Supermercado {
             System.out.println("Valor total dos salários dos gerentes: " + totalGerentes);
             System.out.println("Valor total dos salários dos caixas: " + totalCaixas);
             System.out.println("Valor total dos salários dos repositores: " + totalRepositores);
+            return 0;
         }
            
 
-    public void exibirPreco(){
+    public double exibirPreco(){
         double total = 0;
         double totalComida = 0;
         double totalBebida = 0;
@@ -123,6 +132,7 @@ public class Supermercado {
         System.out.println("Valor Total: "+total);
         System.out.println("Valor Total de Comida: "+totalComida);
         System.out.println("Valor Total de Bebida: "+totalBebida);
+        return 0;
     }
 
         // for(int i = 0; i < funcionarios.length; i++){
@@ -260,6 +270,16 @@ public class Supermercado {
     }
 
     System.out.println("Quantidade de Clientes = " + contadorClientes);
+    }
+
+    public void escreverDados() throws IOException {
+        File arquivo = new File( "C://Users//joaog//OneDrive//Área de Trabalho//Trabalho-POO//src//Files//dadosFinais.txt" );
+
+        FileWriter fw = new FileWriter( arquivo );
+        BufferedWriter bw = new BufferedWriter(fw );
+        fw.write("Exibir custo total: " + exibirCustos() + "\n" + "Exibir ventas totais: " + exibirPreco());
+        bw.close();
+        fw.close();
     }
 
 }
