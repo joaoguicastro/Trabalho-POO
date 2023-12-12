@@ -16,6 +16,10 @@ public class Supermercado {
     private List<Funcionario> funcionarios = new ArrayList<Funcionario>();
     private List<Cliente> clientes = new ArrayList<Cliente>();
 
+    public void CadastrarProdutoDireto(Produto p) {
+        consumiveis.add(p);
+    }
+
     public Supermercado(List<Produto> consumiveis, List<Funcionario> funcionarios, List<Cliente> clientes) {
         this.consumiveis = consumiveis;
         this.funcionarios = funcionarios;
@@ -313,7 +317,7 @@ public class Supermercado {
     }
 
     public void escreverDados(){
-        String path = "C:\\Users\\joaog\\OneDrive\\Área de Trabalho\\Trabalho POO - Joao Guilherme e Leonardo\\src\\Files\\dadosFinais.txt";
+        String path = "\\Users\\joaoguilherme\\Documents\\GitHub\\Trabalho-POO\\src\\Files\\dadosFinais.txt";
         criarArquivo(path);
         try{
             FileWriter fw = new FileWriter(path);

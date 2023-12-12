@@ -1,0 +1,10 @@
+Descritivo - Custo:
+Valor total dos salários: 0.0
+Valor total dos salários dos gerentes: 0.0
+Valor total dos salários dos caixas: 0.0
+Valor total dos salários dos repositores: 0.0
+
+Descritivo - Vendas:
+Valor Total: 18.0
+Valor Total de Comida: 18.0
+Valor Total de Bebida: 0.0

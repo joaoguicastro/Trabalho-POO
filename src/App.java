@@ -10,11 +10,11 @@ import java.util.Scanner;
 import Entidades.*;
 import Exceções.NumeroNaoExistente;
 public class App {
-    public static void main(String[] args) throws Exception {
+    private static List<Produto> LerProdutos() {
         List<Produto> consumiveis = new ArrayList<Produto>();
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         Locale.setDefault(Locale.US);
-        String pathDados = "C:\\Users\\joaog\\OneDrive\\Área de Trabalho\\Trabalho POO - Joao Guilherme e Leonardo\\src\\Files\\dados.txt";
+        String pathDados = "\\Users\\joaoguilherme\\Documents\\GitHub\\Trabalho-POO\\src\\Files\\dados.txt";
         File fileDados = new File(pathDados);
         Scanner sc = null;
         ArrayList<Object> dados = new ArrayList<>();
@@ -36,7 +36,7 @@ public class App {
                 dados.add(imposto);
 
                 consumiveis.add(new AlimentoPerecivel(data, preco, nome, marca, imposto));
-
+                return consumiveis;
             }
         }catch(FileNotFoundException e){
             Supermercado.criarArquivo(pathDados);
@@ -44,6 +44,10 @@ public class App {
         for (Object elemento : dados) {
             System.out.println(elemento);
         }
+        return null;
+    }
+    public static void main(String[] args) throws Exception {
+        
         
         menuPrincipal();
         
@@ -80,6 +84,10 @@ public class App {
 
     public static void loginGerente() {
         Supermercado supermercado = new Supermercado();
+        for (Produto p : LerProdutos()) {
+            
+            supermercado.CadastrarProdutoDireto(p);
+        }
         Scanner sc = new Scanner(System.in);
         boolean loggedIn = false;
     
