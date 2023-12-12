@@ -1,5 +1,5 @@
 package Interfaces;
 
 public interface interfaceProdutos {
-    public abstract int calcularValidade();
+    public abstract double calcularValor();
 }

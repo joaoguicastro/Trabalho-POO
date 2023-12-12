@@ -1,25 +1,21 @@
 package Entidades;
 import Interfaces.interfaceProdutos;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
-public abstract class Produtos implements interfaceProdutos{
+public abstract class Produto implements interfaceProdutos{
     protected LocalDate validade;
     protected double preco;
     protected String nome;
     protected String marca;
-    protected boolean estragou;
-    
-    
+    protected double imposto;
 
-    public Produtos(LocalDate validade, double preco, String nome, String marca, boolean estragou) {
+    public Produto(LocalDate validade, double preco, String nome, String marca, double imposto) {
         this.validade = validade;
         this.preco = preco;
         this.nome = nome;
         this.marca = marca;
-        this.estragou = false;
+        this.imposto = imposto;
     }
-
 
     public LocalDate getValidade() {
         return validade;
@@ -42,6 +38,14 @@ public abstract class Produtos implements interfaceProdutos{
         }
     }
 
+    public double getImposto() {
+        return imposto;
+    }
+
+    public void setImposto(double imposto) {
+        this.imposto = imposto;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -56,29 +60,13 @@ public abstract class Produtos implements interfaceProdutos{
 
     public void setMarca(String marca) {
         this.marca = marca;
-    }
+    }  
 
-    public boolean isEstragou() {
-        return estragou;
-    }
-
-    public void setEstragou(boolean estragou) {
-        this.estragou = estragou;
-    }    
-    
-    public abstract int calcularValidade();
-
-    public String getValidadeFormatada(){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return validade.format(formatter);
-    }
-
+    public abstract double calcularValor();
 
     @Override
     public String toString() {
-        return "Produtos [validade=" + validade + ", preco=" + preco + ", nome=" + nome + ", marca=" + marca + ", estragou=" + estragou + "]";
+        return "Produto [validade=" + validade + ", preco=" + preco + ", nome=" + nome + ", marca=" + marca
+                + ", imposto=" + imposto + "]";
     }
-
-
-    
 }

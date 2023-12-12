@@ -2,12 +2,12 @@ package Entidades;
 
 import Exceções.wrongNameException;
 
-public class Repositor extends Funcionarios{
+public class Repositor extends Funcionario{
     private double salarioFixo;
 
     public Repositor(int idade, String nome, double salarioFixo, int id, int horaExtra, String escolaridade,int quantidadeHorasExtras) {
         super(idade, nome, id, horaExtra, escolaridade, quantidadeHorasExtras);
-        this.salarioFixo = 1700;
+        this.salarioFixo = salarioFixo;
     }
 
     public double getSalarioFixo() {
@@ -55,5 +55,8 @@ public class Repositor extends Funcionarios{
         return salarioFixo + calcularHoraExtra() + calcularEscolaridade() + 100;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Repositor = " + getId()+  "\n" +  "Nome: " + getNome() + ", Salário Fixo: " + getSalarioFixo() + ", Salário Total: " + calcularSalario() + "\n";
+    }
 }
