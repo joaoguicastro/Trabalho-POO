@@ -317,7 +317,7 @@ public class Supermercado {
     }
 
     public void escreverDados(){
-        String path = "\\Users\\joaoguilherme\\Documents\\GitHub\\Trabalho-POO\\src\\Files\\dadosFinais.txt";
+        // String path = "\\Users\\joaoguilherme\\Documents\\GitHub\\Trabalho-POO\\src\\Files\\dadosFinais.txt";
         criarArquivo(path);
         try{
             FileWriter fw = new FileWriter(path);
