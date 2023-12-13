@@ -14,7 +14,7 @@ public class App {
         List<Produto> consumiveis = new ArrayList<Produto>();
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         Locale.setDefault(Locale.US);
-        String pathDados = "\\Users\\joaoguilherme\\Documents\\GitHub\\Trabalho-POO\\src\\Files\\dados.txt";
+        // String pathDados = "\\Users\\joaoguilherme\\Documents\\GitHub\\Trabalho-POO\\src\\Files\\dados.txt";
         File fileDados = new File(pathDados);
         Scanner sc = null;
         ArrayList<Object> dados = new ArrayList<>();
